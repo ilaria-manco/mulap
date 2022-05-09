@@ -16,9 +16,9 @@
 
 </div>
 
-This repository is the official implementation of ["Learning Music Audio Representations Via Weak Language Supervision"](https://arxiv.org/abs/2112.04214) (ICASSP 2022).
+This repository is the official implementation of ["Learning Music Audio Representations Via Weak Language Supervision"](https://ieeexplore.ieee.org/document/9746996) (ICASSP 2022).
 
-In this work we present **MuLaP**, a framework for **mu**sic-and-**la**nguage **p**re-training to learn general-purpose music audio representations. MuLaP allows an audio backbone to learn from weakly aligned natural language descriptions of the audio content via a multimodal co-attention Transformer module. This audio-linguistic pre-training endows the model with good transfer learning capabilities, resulting in representations that are useful for a variety of music classification and regression downstream tasks. 
+In this work we introduced **MuLaP**, a framework for **mu**sic-and-**la**nguage **p**re-training to learn general-purpose music audio representations. MuLaP allows an audio backbone to learn from weakly aligned natural language descriptions of the audio content via a multimodal co-attention Transformer module. This audio-linguistic pre-training endows the model with good transfer learning capabilities, resulting in representations that are useful for a variety of music classification and regression downstream tasks. 
 
 We provide code for pre-training, downstream training and evaluation of MuLaP on 4 tasks: music auto-tagging, genre classification, instrument recognition and emotion recognition. 
 
@@ -59,7 +59,7 @@ dataset_name
 An illustrative example of the dataset is provided in [`data/datasets/audiocaption/`](data/datasets/audiocaption/).
 
 ## Pre-training MuLaP
-Dataset, model and training configurations are set in the respective `yaml` files in [`configs`](configs). You can also pass some options via the CLI, overwriting the arguments in the config files. For more details on the CLI options, you can refer to the [training script](mulap/scripts/pretrain.py).
+Dataset, model and training configurations are set in the respective `yaml` files in [`configs`](configs). You can also pass some options via the CLI, overwriting the arguments in the config files. For more details on the CLI options, please refer to the [training script](scripts/pretrain.py).
 
 To pre-train the model with the default configs, simply run
 
@@ -68,16 +68,16 @@ cd mulap/scripts/
 python pretrain.py 
 ```
 
-This will generate an `pretrain_id` and create a new folder in [`save/experiments/`](save/experiments/) where the output will be saved.
+This will generate a `pretrain_id` and create a new folder in [`save/experiments/`](save/experiments/) where the output will be saved.
 
 If you wish to resume pre-training from a saved checkpoint, run this command:
 
-```train
-python pretrain.py --pretrain_id <pretrain_id> 
+```bash
+python pretrain.py --experiment_id <pretrain_id> 
 ```
 
 ## Transferring MuLaP to downstream tasks
-After pre-training, you can train a classifier on top of the audio backbone for one of the four downstream tasks by running
+After pre-training, you can train a classifier on top of the audio backbone for one of the downstream tasks supported by running
 
 ```bash
 cd mulap/scripts/
@@ -91,13 +91,13 @@ The downstream tasks supported are:
 * `fma_clf`: music genre classification on the [FMA-small dataset](https://github.com/mdeff/fma)
 * `nsynth_clf`: instrument classification on the [NSynth dataset](https://magenta.tensorflow.org/datasets/nsynth)
 
-You'll need to download the datasets inside the [`datasets/`](datasets/) folder and preprocess them before running downstream training. Dataset, model and training configurations for each task are set in the respective `yaml` files in [`configs/downstream`](configs/downstream/).
+You'll need to download the datasets inside the [`datasets/`](datasets/) folder and preprocess them before running downstream training. Dataset, model and training configurations for each task are set in the respective `yaml` files in [`configs/downstream`](configs/downstream/). 
 
 ## Evaluating downstream performance
 
 After downstream training, you can run the evaluation as follows:
 
-```eval
+```bash
 cd <project_name>/scripts/
 python eval.py <pretrain_id> <downstream_id> 
 ```
