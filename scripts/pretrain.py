@@ -43,12 +43,6 @@ def parse_args():
         default=None,
     )
     parser.add_argument(
-        "--track_metrics",
-        type=str,
-        help="whether to track metrics while training",
-        default=None,
-    )
-    parser.add_argument(
         "--device_num",
         type=str,
         default="0",

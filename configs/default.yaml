@@ -4,8 +4,6 @@ training:
   trainer: base_trainer
   # Experiment id to use in logging and checkpoints
   experiment_id: null
-  # Whether to track captioning metrics while training
-  track_metrics: true
   # Maximum number of epochs
   epochs: 100
   # Device on which the model will be trained. Set 'cpu' to train/infer on CPU
