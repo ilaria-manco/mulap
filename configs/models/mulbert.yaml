@@ -20,9 +20,6 @@
     bi_hidden_size: 1024 
     bi_num_attention_heads: 8
     bi_intermediate_size: 1024 
-    bi_attention_type: 1 
-    pooling_method: mul
-    visualisation: false
     initializer_range: 0.02
     # pre-training
     multimodal_objective: atm   
