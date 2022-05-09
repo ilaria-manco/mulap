@@ -16,6 +16,7 @@ from mulap.utils.audio_utils import resample, load_random_slice
 
 
 def parse_annotation_file(csv_file):
+    """Adapted from https://github.com/mdeff/fma/blob/master/utils.py"""
     tracks = pd.read_csv(csv_file, index_col=0, header=[0, 1])
 
     COLUMNS = [('track', 'tags'), ('album', 'tags'), ('artist', 'tags'),
