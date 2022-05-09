@@ -1,0 +1,39 @@
+pretrain_experiment_dir: null
+downstream_experiment_id: null
+downstream_dir: ${pretrain_experiment_dir}/downstream
+dataset_name: nsynth
+task: classification
+backbone_init: mulap
+freeze_backbone: true
+feature_dim: null   # dimension of audio embeddings when backbone_init = "no_backbone"
+bert_audio_embed: false
+classifier: mlp
+hidden_dim: 512 # dimension of hidden layer in classifier if using MLP
+dropout_p: 0.0
+
+training:
+  # Maximum number of epochs
+  epochs: 200
+  # Device on which the model will be trained. Set 'cpu' to train/infer on CPU
+  device: cuda
+  # Configuration for data loading 
+  # Size of each batch
+  batch_size: 64
+  # Number of workers to be used in dataloader
+  num_workers: 4
+  # Whether to shuffle in dataloader
+  shuffle: true
+  # Whether to pin memory in dataloader
+  pin_memory: true
+  # Configuration for optimizer
+  optimizer: adam
+  # Weight decay for Adam
+  weight_decay: 0.001
+  # Initial learning rate
+  lr: 0.001
+  # Early stopping configs
+  early_stop:
+    enabled: true
+    criteria: task_metric
+    minimize: false
+    patience: 50

@@ -1,0 +1,13 @@
+.idea/*
+*.egg-info/
+**/__pycache__/
+.vector_cache/
+build/
+dist/
+.ipynb_checkpoints/
+data/
+save/
+.vscode/
+**.npy
+**.pt
+/venv

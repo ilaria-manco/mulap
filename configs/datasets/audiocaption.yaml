@@ -1,0 +1,13 @@
+dataset_config:
+  dataset_name: audiocaption
+  data_dir: ${env.data_root}/datasets/${dataset_config.dataset_name}
+  # Caption configs
+  text:
+    # Sequences longer than this are truncated, and sequences shorter than this are padded.
+    max_seq_length: 64
+    tokenizer: bert-base-uncased
+  audio:
+    sr: 16000
+    # The maximum total input sequence length in seconds. 
+    # Sequences longer than this are truncated, and sequences shorter than this are padded.
+    max_len_seconds: 20
