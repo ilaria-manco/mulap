@@ -1,5 +1,5 @@
 tqdm==4.46.0
-torch==1.8.0
+torch==2.2.0
 torchaudio==0.8.0
 torchtext==0.6.0
 omegaconf==2.0.0
